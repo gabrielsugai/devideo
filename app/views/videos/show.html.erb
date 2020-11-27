@@ -1,3 +1,6 @@
 <h1><%= @video.title %></h1>
+
+<%= video_tag(url_for(@video.clip)) %>
+
 <p><%= @video.description %></p>
 <%= link_to  "Editar", edit_video_path(@video) %>
