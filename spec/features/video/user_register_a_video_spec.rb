@@ -33,10 +33,8 @@ feature 'User register a video' do
   end
 
   scenario 'And may edit some information' do
-    video = Video.create!(title: 'Video 1', description: 'Video1', 
-                          clip: fixture_file_upload('./spec/video/test_video.mp4', 'video/mp4'), 
-                          thumbnail: fixture_file_upload('./spec/video/image.png', 'image/png') )
-    
+    video = create(:video, clip: clip_path, thumbnail: thumbnail_path)
+
     visit root_path
     click_on video.title
     click_on 'Editar'
