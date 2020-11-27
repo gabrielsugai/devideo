@@ -1,0 +1,9 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      video: Video
+    attributes:
+      video:
+        title: Título
+        description: Descrição

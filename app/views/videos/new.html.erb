@@ -1,11 +1,25 @@
+<% if @video.errors.any? %>
+  <% @video.errors.full_messages.each do |message| %>
+    <div>
+      <p><%= message %></p>
+    </div>
+  <% end %>
+<% end %>
+
+
 <%= form_with model: @video do |f| %>
+  <div>
   <%= f.label :title, 'Título' %>
   <%= f.text_field :title %>
+  </div><div>
   <%= f.label :description, 'Descrição' %>
   <%= f.text_field :description %>
+  </div><div>
   <%= f.label :clip, 'Video' %>
   <%= f.file_field :clip %>
+  </div><div>
   <%= f.label :thumbnail, 'Thumbnail' %>
   <%= f.file_field :thumbnail %>
+  </div>
   <%= f.submit 'Upload' %>
 <% end %>

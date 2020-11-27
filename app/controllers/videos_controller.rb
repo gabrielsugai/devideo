@@ -13,11 +13,11 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    flash[:success] = "Video enviado com sucesso!"
     if @video.save
+      flash[:success] = "Video enviado com sucesso!"
       redirect_to @video
     else
-      redirect_to root_path
+      render :new
     end
   end
 

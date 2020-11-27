@@ -16,4 +16,19 @@ feature 'User register a video' do
     expect(page).to have_content('Video teste')
     expect(page).to have_content('Video para testes')
   end
+
+  scenario "And din't fill somefield" do
+    
+    visit root_path
+    click_on 'Novo video'
+
+    fill_in 'Título', with: ''
+    fill_in 'Descrição', with: ''
+    click_on 'Upload'
+
+    expect(page).to have_content('Título não pode ficar em branco')
+    expect(page).to have_content('Descrição não pode ficar em branco')
+    #expect(page).to have_content('Clip não pode ficar em branco')
+    #expect(page).to have_content('Thumbnail não pode ficar em branco')
+  end
 end
