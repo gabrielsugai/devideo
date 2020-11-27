@@ -21,6 +21,19 @@ class VideosController < ApplicationController
     end
   end
 
+  def edit
+    @video = Video.find(params[:id])
+  end
+  
+  def update
+    @video = Video.find(params[:id])
+    if @video.update(video_params)
+      redirect_to @video
+    else
+      render :edit
+    end
+  end
+
   private
 
     def video_params

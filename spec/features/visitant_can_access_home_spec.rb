@@ -2,8 +2,12 @@ require 'rails_helper'
 
 feature 'Visitant can access home page' do
   scenario 'and view all registered videos' do
-    videoA = Video.create!(title: 'Video 1', description: 'Video1' )
-    videoB = Video.create!(title: 'Video 2', description: 'Video2')
+    videoA = Video.create!(title: 'Video 1', description: 'Video1', 
+                          clip: fixture_file_upload('./spec/video/test_video.mp4', 'video/mp4'), 
+                          thumbnail: fixture_file_upload('./spec/video/image.png', 'image/png') )
+    videoB = Video.create!(title: 'Video 2', description: 'Video2', 
+                          clip: fixture_file_upload('./spec/video/test_video.mp4', 'video/mp4'), 
+                          thumbnail: fixture_file_upload('./spec/video/image.png', 'image/png') )
 
     visit root_path
 
@@ -13,8 +17,13 @@ feature 'Visitant can access home page' do
   end
 
   scenario 'and can view a video details' do
-    videoA = Video.create!(title: 'Video 1', description: 'Video1')
-    videoB = Video.create!(title: 'Video 2', description: 'Video2')
+    videoA = Video.create!(title: 'Video 1', description: 'Video1', 
+                          clip: fixture_file_upload('./spec/video/test_video.mp4', 'video/mp4'), 
+                          thumbnail: fixture_file_upload('./spec/video/image.png', 'image/png') )
+    videoB = Video.create!(title: 'Video 2', description: 'Video2', 
+                          clip: fixture_file_upload('./spec/video/test_video.mp4', 'video/mp4'), 
+                          thumbnail: fixture_file_upload('./spec/video/image.png', 'image/png') )
+
 
     visit root_path
     click_on videoA.title
