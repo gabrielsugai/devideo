@@ -25,4 +25,10 @@ feature 'Visitant can access home page' do
     expect(page).not_to have_content(videoB.description)
 
   end
+
+  scenario 'and no video registered' do
+    visit root_path
+
+    expect(page).to have_content("Nenhum vídeo cadastrado.")
+  end
 end

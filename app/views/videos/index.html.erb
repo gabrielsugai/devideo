@@ -1,3 +1,10 @@
-<% @videos.each do |video| %>
-  <h2><%= link_to  video.title, video%></h2>
+
+<%= link_to  "Novo video", new_video_path %>
+
+<% if @videos.any?%>
+  <% @videos.each do |video| %>
+    <h2><%= link_to  video.title, video%></h2>
+  <% end %>
+<% else %>
+  <p>Nenhum vídeo cadastrado.</p>
 <% end %>
