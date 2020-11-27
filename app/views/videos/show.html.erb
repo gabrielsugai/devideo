@@ -1,6 +1,9 @@
 <h1><%= @video.title %></h1>
 
-<%= video_tag(url_for(@video.clip)) %>
+<video id="my-video" class="video-js" controls preload="auto" width="640"
+    height="264" poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
+    <source src="<%= url_for(@video.clip) %>" type="video/mp4" />
+</video>
 
 <p><%= @video.description %></p>
 <%= link_to  "Editar", edit_video_path(@video) %>
