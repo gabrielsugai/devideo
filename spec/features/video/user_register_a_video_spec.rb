@@ -59,4 +59,10 @@ feature 'User register a video' do
 
     expect(current_path).to eq new_user_session_path
   end
+
+  scenario 'and cannot create unless logged in' do
+    visit new_video_path
+
+    expect(current_path).to eq new_user_session_path
+  end
 end
