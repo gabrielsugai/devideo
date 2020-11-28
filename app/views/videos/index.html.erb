@@ -1,8 +1,3 @@
-
-<%= link_to  "Login", new_user_session_path %>
-<%= link_to  'Registrar-se', new_user_registration_path %>
-<%= link_to  "Novo video", new_video_path %>
-
 <% if @videos.any?%>
   <% @videos.each do |video| %>
     <div class="video-thumb">

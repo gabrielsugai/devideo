@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'User register a video' do
   scenario 'successfully' do
+    user = create(:user)
+    login_as user, scope: :user
     
     visit root_path
     click_on 'Novo video'
@@ -18,6 +20,8 @@ feature 'User register a video' do
   end
 
   scenario "And din't fill somefield" do
+    user = create(:user)
+    login_as user, scope: :user
     
     visit root_path
     click_on 'Novo video'

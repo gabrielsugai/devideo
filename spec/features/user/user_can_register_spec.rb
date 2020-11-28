@@ -19,14 +19,33 @@ feature 'User can register' do
 
     visit root_path
 
-    click_on 'Login'
+    click_on 'Entrar'
 
     fill_in 'E-mail', with: user.email
     fill_in 'Senha', with: user.password
     click_on 'Log in'
 
     expect(page).to have_content('Login efetuado com sucesso!')
+    expect(page).not_to have_content('Registrar-se')
+    expect(page).not_to have_content('Entrar')
     expect(current_path). to eq root_path
+  end
+
+  scenario 'and can logout' do
+    user = create(:user)
+
+    visit root_path
+    click_on 'Entrar'
+
+    fill_in 'E-mail', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Log in'
+    click_on 'Sair'
+
+    expect(page).to have_content('Saiu com sucesso')
+    expect(page).to have_content('Entrar')
+    expect(page).not_to have_content('Sair')
+    expect(current_path).to eq root_path
 
   end
 end

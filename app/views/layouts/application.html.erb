@@ -14,6 +14,15 @@
   </head>
 
   <body>
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to  "Novo video", new_video_path %>
+        <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to  "Entrar", new_user_session_path %>
+        <%= link_to  'Registrar-se', new_user_registration_path %>
+      <% end %>
+    </nav>
     <h1>DEVideo</h1>
     <%= flash[:success] %>
     <p class="notice"><%= notice %></p>
