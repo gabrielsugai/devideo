@@ -30,6 +30,25 @@ feature 'Visitant can access home page' do
 
   end
 
+  scenario 'and should back to the root_path' do
+    video = create(:video, clip: clip_path, thumbnail: thumbnail_path)
+
+    visit root_path
+    click_on video.title
+    click_on 'Voltar'
+
+    expect(current_path).to eq(root_path)
+    
+  end
+
+  scenario 'and can view and click on the thumbnail' do
+    video = create(:video, clip: clip_path, thumbnail: thumbnail_path)
+
+    visit root_path
+
+    expect(page).to have_css('img')
+  end
+
   scenario 'and no video registered' do
     visit root_path
 

@@ -3,7 +3,10 @@
 
 <% if @videos.any?%>
   <% @videos.each do |video| %>
-    <h2><%= link_to  video.title, video%></h2>
+    <div class="video-thumb">
+      <h2><%= link_to  video.title, video%></h2>
+      <h2><%= link_to  image_tag(video.thumbnail), video%>
+    </div>
   <% end %>
 <% else %>
   <p>Nenhum vídeo cadastrado.</p>
