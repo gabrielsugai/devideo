@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User can register' do
   scenario 'successfully' do
     visit root_path
-    click_on 'Login'
+    click_on 'Registrar-se'
 
     fill_in 'E-mail', with: 'email@email.com'
     fill_in 'Senha', with: '12345678'
@@ -12,5 +12,21 @@ feature 'User can register' do
 
     expect(page).to have_content('Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.')
     expect(current_path).to eq root_path
+  end
+
+  scenario 'and can login' do
+    user = create(:user)
+
+    visit root_path
+
+    click_on 'Login'
+
+    fill_in 'E-mail', with: user.email
+    fill_in 'Senha', with: user.password
+    click_on 'Log in'
+
+    expect(page).to have_content('Login efetuado com sucesso!')
+    expect(current_path). to eq root_path
+
   end
 end
