@@ -6,6 +6,9 @@
 </video>
 
 <p><%= @video.description %></p>
-<%= link_to  "Editar", edit_video_path(@video) %>
+<% if user_signed_in? and current_user.id == @video.user_id %>
+    <%= link_to  "Editar", edit_video_path(@video) %>
+<% else %>
+<% end %>
 
 <%= link_to  "Voltar", root_path %>

@@ -37,7 +37,9 @@ feature 'User register a video' do
   end
 
   scenario 'And may edit some information' do
-    video = create(:video, clip: clip_path, thumbnail: thumbnail_path)
+    user = create(:user)
+    video = create(:video, clip: clip_path, thumbnail: thumbnail_path, user: user)
+    login_as user, scope: :user
 
     visit root_path
     click_on video.title
