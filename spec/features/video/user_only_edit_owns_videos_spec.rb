@@ -40,4 +40,17 @@ feature 'An user can only edit his owns videos' do
 
     expect(current_path).to eq new_user_session_path
   end
+
+  scenario 'and been redirect if try to access onthers videos edits' do
+    user = create(:user)
+    video = create(:video, clip: clip_path, thumbnail: thumbnail_path, user: user)
+    another_user = create(:user)
+    
+    login_as another_user, scope: :user
+
+    visit edit_video_path(video)
+
+    expect(page).to have_content('Acesso Negado!')
+    expect(current_path).to eq(root_path)
+  end
 end

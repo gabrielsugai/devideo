@@ -24,6 +24,10 @@ class VideosController < ApplicationController
 
   def edit
     @video = Video.find(params[:id])
+    if current_user.id != @video.user_id
+      flash[:errors] = "Acesso Negado!"
+      redirect_to root_path
+    end
   end
   
   def update
