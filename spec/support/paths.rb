@@ -3,5 +3,5 @@ def clip_path
 end
 
 def thumbnail_path
-  fixture_file_upload('./spec/video/image.png', 'image/png')
+  fixture_file_upload('./spec/video/cat.jpg', 'image/jpg')
 end

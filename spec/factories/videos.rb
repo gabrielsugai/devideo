@@ -5,6 +5,7 @@ FactoryBot.define do
     sequence(:description) { |n| "Descrição#{n}"}
     clip { }
     thumbnail { }
+    url { 'localhost/test_video.mp4' }
   end
 end
 

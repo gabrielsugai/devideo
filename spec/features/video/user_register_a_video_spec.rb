@@ -10,13 +10,31 @@ feature 'User register a video' do
 
     fill_in 'Título', with: 'Video teste'
     fill_in 'Descrição', with: 'Video para testes'
+    fill_in 'URL', with: 'localhost/test_video.mp4'
     attach_file 'Video', './spec/video/test_video.mp4'
-    attach_file 'Thumbnail', './spec/video/image.png'
+    attach_file 'Thumbnail', './spec/video/cat.jpg'
     click_on 'Upload'
 
     expect(page).to have_content('Video enviado com sucesso!')
     expect(page).to have_content('Video teste')
     expect(page).to have_content('Video para testes')
+  end
+
+  scenario 'and need to inform a valid URL' do
+    user = create(:user)
+    login_as user, scope: :user
+    
+    visit root_path
+    click_on 'Novo video'
+
+    fill_in 'Título', with: 'Video teste'
+    fill_in 'Descrição', with: 'Video para testes'
+    fill_in 'URL', with: 'localhost/test_video'
+    attach_file 'Video', './spec/video/test_video.mp4'
+    attach_file 'Thumbnail', './spec/video/cat.jpg'
+    click_on 'Upload'
+
+    expect(page).to have_content('Url não é válido')
   end
 
   scenario "And din't fill somefield" do

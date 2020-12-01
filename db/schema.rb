@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_224029) do
+ActiveRecord::Schema.define(version: 2020_12_01_040450) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,9 +51,18 @@ ActiveRecord::Schema.define(version: 2020_11_28_224029) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.text "url"
     t.index ["user_id"], name: "index_videos_on_user_id"
+  end
+
+  create_table "viedeo_views", force: :cascade do |t|
+    t.integer "video_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["video_id"], name: "index_viedeo_views_on_video_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "videos", "users"
+  add_foreign_key "viedeo_views", "videos"
 end
