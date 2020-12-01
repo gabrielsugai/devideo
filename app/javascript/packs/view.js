@@ -16,7 +16,8 @@ videoPlayer.addEventListener('play', () => {
     Rails.ajax({
       type: "POST",
       url: "/video_views",
-      data: { video_view: { video_id: videoId } }
+      dataType: "json",
+      data: 'video_view[video_id]=' + videoId
     })
   }
 })

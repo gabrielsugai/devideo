@@ -1,7 +1,5 @@
 class VideoViewsController < ApplicationController
   def create
-    puts('====================')
-    puts(params)
     @view = VideoView.new(views_params)
     @view.save
   end

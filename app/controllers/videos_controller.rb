@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @views = VideoView.where(video_id: @video)
   end
 
   def new

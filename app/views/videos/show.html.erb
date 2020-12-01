@@ -5,6 +5,8 @@
     <source src="<%= url_for(@video.clip) %>" type="video/mp4" />
 </video>
 
+<p> <%= @views.length %> visualizações</p>
+
 <p><%= @video.description %></p>
 <% if user_signed_in? and current_user.id == @video.user_id %>
     <%= link_to  "Editar", edit_video_path(@video) %>
