@@ -1,0 +1,79 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: rgb(226, 226, 226);
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.icon-title{
+  display: inline-block;
+}
+
+.nav {
+  margin: 20px auto 0;
+  border-radius: 20px 20px 0 0;
+  width: 80%;
+  background-color: rgba(253, 165, 165, 0.767);
+}
+
+.nav ul{
+  float: right;
+  text-align: right;
+}
+
+.nav a{
+  text-decoration: none;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: white;
+  transition: color 0.3s linear;
+}
+
+.nav a:hover{
+  color: rgba(0, 0, 0, 0.418)
+}
+
+.nav h1 a{
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.nav li{
+  display: inline-block;
+  list-style: none;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.principal{
+  margin: 0 auto;
+  width: 80%;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.principal .video-card{
+  width: 40%;
+  margin: 10px;
+}
+
+.principal .video-card a{
+  color: black
+}
+
+.principal img{
+  margin: 0 5%;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.principal a{
+  text-decoration: none;
+}

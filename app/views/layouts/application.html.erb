@@ -14,20 +14,26 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="nav">
+      <h1 class="icon-title"><%= link_to  "DEVideo", root_path %></h1>
+      <ul>
       <% if user_signed_in? %>
-        <%= link_to  "Novo video", new_video_path %>
-        <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+        <li><%= link_to  "Novo video", new_video_path %></li>
+        <li><%= link_to  "Sair", destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <%= link_to  "Entrar", new_user_session_path %>
-        <%= link_to  'Registrar-se', new_user_registration_path %>
+        <li><%= link_to  "Entrar", new_user_session_path %></li>
+        <li><%= link_to  'Registrar-se', new_user_registration_path %></li>
       <% end %>
+      </ul>
     </nav>
-    <h1>DEVideo</h1>
-    <%= flash[:success] %>
-    <%= flash[:errors] %>
+    <main class="principal">
+    <div class="alerts">
+    <p><%= flash[:success] %></p>
+    <p><%= flash[:errors] %></p>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
+    </main>
   </body>
 </html>

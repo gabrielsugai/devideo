@@ -1,20 +1,26 @@
-<h1><%= @video.title %></h1>
+<div class="player">
 
-<video id="my-video" class="video-js" controls preload="auto" width="640"
-    height="264" poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
-    <source src="<%= url_for(@video.clip) %>" type="video/mp4" />
-</video>
+    <h1><%= @video.title %></h1>
 
-<p> <%= @views.length %> visualizações</p>
+    <div class="video">
+        <video id="my-video" class="video-js" controls preload="auto" width="640"
+            height="264" poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
+            <source src="<%= url_for(@video.clip) %>" type="video/mp4" />
+        </video>
+    </div>
 
-<p><%= @video.description %></p>
-<% if user_signed_in? and current_user.id == @video.user_id %>
-    <%= link_to  "Editar", edit_video_path(@video) %>
-<% else %>
-<% end %>
+    <div class="descript">
+        <p> <%= @views.length %> visualizações</p>
+        <p class="about" ><%= @video.description %></p>
+        <% if user_signed_in? and current_user.id == @video.user_id %>
+            <%= link_to  "Editar", edit_video_path(@video) %>
+        <% else %>
+        <% end %>
+    </div>
+    <span id="video-id" style="display:none" ><%= @video.id %></span>
 
-<span id="video-id" style="display:none" ><%= @video.id %></span>
+    <%= link_to  "Voltar", root_path %>
 
-<%= link_to  "Voltar", root_path %>
+</div>
 
 <%= javascript_pack_tag "view" %>

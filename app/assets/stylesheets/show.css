@@ -1,0 +1,21 @@
+.player{
+  display: block;
+}
+
+.player .video{
+  display: flex;
+  justify-content: center;
+}
+
+.player video{
+  width: 900px;
+  height: 300px;
+}
+
+.player .descript{
+  font-size: 14px;
+}
+
+.player .descript .about{
+  margin: 10px;
+}

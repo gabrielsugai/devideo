@@ -1,6 +1,6 @@
 <% if @videos.any?%>
   <% @videos.each do |video| %>
-    <div class="video-thumb">
+    <div class="video-card">
       <h2><%= link_to  video.title, video%></h2>
       <%= link_to  image_tag(video.thumbnail), video %>
       <p><%= video.video_views.length %> visualizações</p>
