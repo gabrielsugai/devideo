@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_040450) do
+ActiveRecord::Schema.define(version: 2020_12_01_162556) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 2020_12_01_040450) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "video_views", force: :cascade do |t|
+    t.integer "video_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["video_id"], name: "index_video_views_on_video_id"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -63,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_040450) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "video_views", "videos"
   add_foreign_key "videos", "users"
   add_foreign_key "viedeo_views", "videos"
 end

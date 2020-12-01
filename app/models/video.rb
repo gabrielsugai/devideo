@@ -4,5 +4,5 @@ class Video < ApplicationRecord
   has_one_attached :thumbnail
 
   validates :title, :description, :clip, :thumbnail, :url, presence: true
-  validates :url, format: {with: /\w+\/\w+\.m{1}\w/ }
+  validates :url, format: {with: /\w+\/\w+\.mp4/ }
 end

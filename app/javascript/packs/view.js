@@ -1,7 +1,22 @@
-page_loaded = 0
+import Rails from '@rails/ujs';
 
-console.log('ola')
+let page_loaded = 0
+let videoId = document.getElementById('video-id').textContent
+const videoPlayer = document.getElementById('my-video')
 
-function count_view(){
-  alert('ola')
-}
+document.addEventListener('turbolinks:load', () => {
+  page_loaded = 1
+  console.log(page_loaded)
+})
+
+
+videoPlayer.addEventListener('play', () => {
+  if(page_loaded){
+    page_loaded = 0
+    Rails.ajax({
+      type: "POST",
+      url: "/video_views",
+      data: { video_view: { video_id: videoId } }
+    })
+  }
+})

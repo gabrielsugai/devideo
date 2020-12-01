@@ -1,8 +1,6 @@
-<%= javascript_pack_tag "view" %>
-
 <h1><%= @video.title %></h1>
 
-<video id="my-video" class="video-js" controls onplay="count_view()" preload="auto" width="640"
+<video id="my-video" class="video-js" controls preload="auto" width="640"
     height="264" poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
     <source src="<%= url_for(@video.clip) %>" type="video/mp4" />
 </video>
@@ -13,4 +11,8 @@
 <% else %>
 <% end %>
 
+<span id="video-id" style="display:none" ><%= @video.id %></span>
+
 <%= link_to  "Voltar", root_path %>
+
+<%= javascript_pack_tag "view" %>
