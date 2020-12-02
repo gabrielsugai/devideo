@@ -1,0 +1,20 @@
+.form-login{
+  text-align: center;
+}
+.form-login h2{
+  margin: auto;
+}
+
+.form-login .field{
+  margin: 10px 0;
+}
+
+.form-login .field input{
+  border: 1px solid rgba(253, 165, 165, 0.767);
+  border-radius: 10px;
+  padding: 5px 60px;
+}
+
+.form-login .buttons{
+  display: flex;
+}
