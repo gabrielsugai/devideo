@@ -18,3 +18,7 @@
 .form-login .buttons{
   display: flex;
 }
+
+.submit-form{
+  display: block;
+}

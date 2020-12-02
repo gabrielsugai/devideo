@@ -1,32 +1,34 @@
-<% if @video.errors.any? %>
-  <% @video.errors.full_messages.each do |message| %>
-    <div>
-      <p><%= message %></p>
-    </div>
+<div class="form-login">
+  <% if @video.errors.any? %>
+    <% @video.errors.full_messages.each do |message| %>
+      <div>
+        <p><%= message %></p>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<%= form_with model: @video do |f| %>
-  <div>
-  <%= f.label :title, 'Título' %>
-  <%= f.text_field :title %>
-  </div>
-  <div>
-  <%= f.label :description, 'Descrição' %>
-  <%= f.text_field :description %>
-  </div>
-  <div>
-  <%= f.label :url, 'URL' %>
-  <%= f.text_field :url %>
-  </div>
-  <div>
-  <%= f.label :clip, 'Video' %>
-  <%= f.file_field :clip %>
-  </div>
-  <div>
-  <%= f.label :thumbnail, 'Thumbnail' %>
-  <%= f.file_field :thumbnail %>
-  </div>
-  <%= f.submit 'Upload' %>
-<% end %>
+  <%= form_with model: @video do |f| %>
+    <div class="field">
+    <%= f.label :title, 'Título', class: 'submit-form' %>
+    <%= f.text_field :title %>
+    </div>
+    <div class="field">
+    <%= f.label :description, 'Descrição', class: 'submit-form' %>
+    <%= f.text_field :description %>
+    </div>
+    <div class="field">
+    <%= f.label :url, 'URL', class: 'submit-form' %>
+    <%= f.text_field :url %>
+    </div>
+    <div class="field">
+    <%= f.label :clip, 'Video', class: 'submit-form' %>
+    <%= f.file_field :clip %>
+    </div>
+    <div class="field">
+    <%= f.label :thumbnail, 'Thumbnail', class: 'submit-form' %>
+    <%= f.file_field :thumbnail %>
+    </div>
+    <%= f.submit 'Upload', class: 'button' %>
+  <% end %>
+</div>

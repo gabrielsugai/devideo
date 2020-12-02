@@ -27,13 +27,11 @@
       </ul>
     </nav>
     <main class="principal">
-    <div class="alerts">
-    <p><%= flash[:success] %></p>
-    <p><%= flash[:errors] %></p>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    </div>
-    <%= yield %>
+      <p><%= flash[:success] %></p>
+      <p><%= flash[:errors] %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </main>
   </body>
 </html>
